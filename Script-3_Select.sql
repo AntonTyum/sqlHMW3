@@ -18,7 +18,15 @@ WHERE Название_исполнителя NOT LIKE '% %';
 
 SELECT Название_трека
 FROM Треки
-WHERE LOWER(Название_трека) LIKE '%мой%' OR LOWER(Название_трека) LIKE '%my%';
+WHERE LOWER(Название_трека) LIKE 'my'
+    OR LOWER(Название_трека) LIKE 'my %'
+    OR LOWER(Название_трека) LIKE '% my'
+    OR LOWER(Название_трека) LIKE '% my %'
+    OR LOWER(Название_трека) LIKE 'мой'
+    OR LOWER(Название_трека) LIKE 'мой %'
+    OR LOWER(Название_трека) LIKE '% мой'
+    OR LOWER(Название_трека) LIKE '% мой %';
+
 
 SELECT Жанры.Название_жанра, COUNT(Жанры_исполнителей.ID_исполнителя) AS Количество_исполнителей
 FROM Жанры
